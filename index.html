@@ -37,6 +37,9 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+
+  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
 </head>
 
 <body>
@@ -48,6 +51,32 @@
     <div id="topbar">
       <div class="container">
         <div class="social-links">
+          <span id="container">
+            <input id="txtEmail" type="email" placeholder="Email">
+    
+            <input id="txtPassword" type="password" placeholder="Password">
+    
+            <button id="btnLogin" class="btn btn-action">
+                log in
+            </button>
+    
+            <button id="btnSignUp" class="btn btn-secondary">
+                Sign Up
+            </button>
+    
+            <button id="btnLogout" class="btn btn-action" hidden="true">
+                Log out
+            </button>
+          </span>
+      
+          <span id="whenSignedOut">
+              <button id="signInBtn">구글로 로그인</button>
+          </span>
+      
+          <span id="whenSignedIn" hidden="true">
+              <span id="userDetails"></span>
+              <button id="signOutBtn">Log out</button>
+          </span>
           <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
           <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
           <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
@@ -451,6 +480,7 @@
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
   <script src="js/1.js"></script>
+  <script src="js/app.js"></script>
 
 </body>
 </html>
