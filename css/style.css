@@ -1670,7 +1670,7 @@ h6 {
   font-weight: bold;
   color: #5f5b96;
   border-radius: 0;
-  padding: 10px 24px;
+  padding: 8px 20px;
   letter-spacing: 1px;
   border-radius: 3px;
   margin-left: 20px;
@@ -1732,4 +1732,23 @@ h6 {
   margin-bottom: 10px;
   font-family: "Montserrat", sans-serif;
   color: #535074;
+}
+
+.delete_btn {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  color: #5f5b96;
+  border-radius: 0;
+  padding: 6px 16px;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  margin-left: 20px;
+  background: #1bb1dc;
+  color: #fff;
+  border: none;
+}
+
+#record_section .btn_section {
+  margin-bottom: 4%;
 }

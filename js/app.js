@@ -88,7 +88,7 @@
     
     auth.onAuthStateChanged(user => {
         if (user) {
-            //sing in
+            //sign in
             var user = firebase.auth().currentUser;
             var name, email, photoUrl, uid, emailVerified;
             name = user.displayName;
