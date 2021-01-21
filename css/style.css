@@ -209,7 +209,9 @@ h6 {
 /*--------------------------------------------------------------
 # Intro Section
 --------------------------------------------------------------*/
-
+#login_large {
+  display: none;
+}
 #intro {
   width: 100%;
   height: 100vh;
@@ -380,7 +382,8 @@ h6 {
   list-style: none;
 }
 
-.mobile-nav a {
+.mobile-nav a,
+#login_large {
   display: block;
   position: relative;
   color: #fff;
@@ -1477,6 +1480,9 @@ h6 {
 }
 
 @media (max-width: 991px) {
+  #login_large {
+    display: block;
+  }
   #topbar {
     display: none;
   }
