@@ -1448,7 +1448,7 @@ h6 {
 /*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/
-
+/* 
 @media (min-width: 991px) {
   #call-to-action .cta-btn-container {
     display: -webkit-box;
@@ -1566,7 +1566,10 @@ h6 {
   #footer .footer-top .social-links a {
     margin-bottom: 25px;
   }
-}
+} */
+
+
+/* =============== */
 
 #cmd_recommend,
 #end,
@@ -1574,7 +1577,7 @@ h6 {
   display: none;
 }
 
-.col-lg-6 .form h1 {
+.col-sm-6 .form h1 {
   padding: 0px 20px;
   font-size: 44px;
   font-weight: 700;
@@ -1585,7 +1588,7 @@ h6 {
   
 }
 
-.col-lg-6 .form h2 {
+.col-sm-6 .form h2 {
   padding: 10px 20px;
   font-size: 20px;
   font-weight: bold;
@@ -1597,7 +1600,7 @@ h6 {
   list-style:none;
   
 } */
-.col-lg-6 .form .primary {
+.col-sm-6 .form .primary {
 
     font-family: "Montserrat", sans-serif;
     font-size: 13px;
@@ -1627,9 +1630,9 @@ h6 {
   font-family: "Montserrat", sans-serif;
 }
 
-.col-lg-6 .form h3,
-.col-lg-6 .form .make h3
-.col-lg-6 .form .make .button-center {
+.col-sm-6 .form h3,
+.col-sm-6 .form .make h3
+.col-sm-6 .form .make .button-center {
   padding: 10px 20px;
   margin-bottom : 10px; 
   font-size: 20px;
@@ -1647,7 +1650,7 @@ h6 {
   color: #000;
   font-family: "Montserrat", sans-serif;
 }
-.col-lg-6 .form #js .y {
+.col-sm-6 .form #js .y {
   margin-right: 20px;
   margin-top: 5px;
   text-transform: uppercase;
@@ -1664,7 +1667,7 @@ h6 {
   text-align: center;
 }
 
-.col-lg-6 .form .make .ok {
+.col-sm-6 .form .make .ok {
   text-transform: uppercase;
   font-size: 13px;
   font-weight: bold;
@@ -1701,7 +1704,7 @@ h6 {
 }
 
 
-.col-lg-6 .row .col-sm-6 .footer-newsletter .sub {
+.col-sm-6 .row .col-sm-6 .footer-newsletter .sub {
   text-transform: uppercase;
   font-weight: bold;
   color: #5f5b96;
@@ -1713,7 +1716,7 @@ h6 {
  padding: 6px 8px;
 }
 
-.col-lg-6 .row .col-sm-6 .footer-links ul {
+.col-sm-6 .row .col-sm-6 .footer-links ul {
   font-family: "Montserrat", sans-serif;
   font-weight: lighter;
   margin: 0 0 20px 0;
@@ -1752,3 +1755,4 @@ h6 {
 #record_section .btn_section {
   margin-bottom: 4%;
 }
+
