@@ -40,6 +40,7 @@
 
   <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 
+
 </head>
 
 <body>
@@ -51,10 +52,10 @@
     <div id="topbar">
       <div class="container">
         <div class="social-links">
-          <span id="container">
-            <input id="txtEmail" type="email" placeholder="Email">
+          <span id="container1">
+            <input id="userLoginEmail" type="email" placeholder="Email">
     
-            <input id="txtPassword" type="password" placeholder="Password">
+            <input id="userLoginPassword" type="password" placeholder="Password">
     
             <button id="btnLogin" class="btn btn-action">
                 log in
@@ -67,7 +68,7 @@
           </span>
       
           <span id="whenSignedOut">
-              <button id="signInBtn" class="btn btn-action google"><i class="fa fa-google"></i></button>
+              <button id="btnGoogle" class="btn btn-action google"><i class="fa fa-google"></i></button>
           </span>
       
           <span id="whenSignedIn" hidden="true">
@@ -92,7 +93,7 @@
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li><a href="#">log in</a></li>
+          <li><a href="#" onclick='window.open("login.html","log in","width=500,height=500,left=100,top=50")'>log in</a></li>
           <li class="active"><a href="#intro">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>

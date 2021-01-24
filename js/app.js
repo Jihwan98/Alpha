@@ -24,16 +24,16 @@
     const whenSignedIn = document.getElementById('whenSignedIn');
     const whenSignedOut = document.getElementById('whenSignedOut');
     
-    const signInBtn = document.getElementById('signInBtn');
+    const btnGoogle = document.getElementById('btnGoogle');
     const signOutBtn = document.getElementById('signOutBtn');
     
     const userDetails = document.getElementById('userDetails');
     
-    const container = document.getElementById('container');
+    const container1 = document.getElementById('container1');
     
     
-    const txtEmail = document.getElementById('txtEmail');
-    const txtPassword = document.getElementById('txtPassword');
+    const userLoginEmail = document.getElementById('userLoginEmail');
+    const userLoginPassword = document.getElementById('userLoginPassword');
     const btnLogin = document.getElementById('btnLogin');
     const btnSignUp = document.getElementById('btnSignUp');
     
@@ -43,8 +43,8 @@
     // Add login event
     btnLogin.addEventListener('click', e => {
         // Get email and pass
-        const email = txtEmail.value;
-        const pass = txtPassword.value;
+        const email = userLoginEmail.value;
+        const pass = userLoginPassword.value;
         const auth = firebase.auth();
     
         // Sign in
@@ -59,8 +59,8 @@
     btnSignUp.addEventListener('click', e => {
         // Get email and pass
         // TODO: CHECK 4 REAL EMAILZ
-        const email = txtEmail.value;
-        const pass = txtPassword.value;
+        const email = userLoginEmail.value;
+        const pass = userLoginPassword.value;
         const auth = firebase.auth();
     
         // Sign in
@@ -82,7 +82,7 @@
     
     
     //인증 이벤트 처리
-    signInBtn.onclick = () => auth.signInWithPopup(provider);
+    btnGoogle.onclick = () => auth.signInWithPopup(provider);
     
     signOutBtn.onclick = () => auth.signOut();
     
@@ -98,13 +98,13 @@
             uid = user.uid;
             whenSignedIn.hidden = false;
             whenSignedOut.hidden = true;
-            container.hidden = true;
+            container1.hidden = true;
             userDetails.innerHTML = email + '<span> 안녕하세요.<span>'
         } else{
             //sign out
             whenSignedIn.hidden = true;
             whenSignedOut.hidden = false;
-            container.hidden = false;
+            container1.hidden = false;
             userDetails.innerHTML = '';
         }
     });
