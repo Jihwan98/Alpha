@@ -37,7 +37,18 @@
     const btnLogin = document.getElementById('btnLogin');
     const btnSignUp = document.getElementById('btnSignUp');
     
-    
+
+
+
+    userLoginPassword.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        // event.preventDefault();
+        // Trigger the button element with a click
+        btnLogin.click();
+    }
+    });
     
     
     // Add login event
@@ -54,9 +65,14 @@
             alert("PASSWORD incorrect")
         });
     });
+
+    
+
+
+
     
     // Add signup event
-    btnSignUp.addEventListener('click', e => {
+    btnSignUp.addEventListener('if (window.event.keyCode == 13)', e => {
         // Get email and pass
         // TODO: CHECK 4 REAL EMAILZ
         const email = userLoginEmail.value;
@@ -71,12 +87,10 @@
     });
     
     
-    
-    
-    
-    
-    
-    
+
+
+
+
     
     
     
@@ -110,14 +124,6 @@
     });
     
     }());
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-
     <script type="text/javascript">
         function close(){
             window.opener.location.href="index.html";}
@@ -18,7 +17,7 @@
 
 </head>
 
-<body onunload="close()">
+<body onunload="close()" style="margin-top: 20px; margin-bottom: 20px;">
     <div class="container">
         <div id="userLoginWrap">
             <div class="card">
@@ -27,14 +26,11 @@
 
                     <span id="whenSignedOut">
                         <button id="btnGoogle" class="btn btn-block btn-outline-danger"><i class="fab fa-google"></i> 구글 로그인</button>
-                        <!-- <a href="" class="btn btn-block btn-outline-danger" id="btnGoogle">
-                            <i class="fab fa-google"></i> 구글 로그인 -->
-                        </a>
                     </span>
                     
                     <span id="whenSignedIn" hidden="true">
-                        <div id="userDetails"></div>
-                        <button id="signOutBtn">Log out</button>
+                        <span id="userDetails"></span>
+                        <button id="signOutBtn" class="btn btn-secondary btn-sm">Log out</button>
                     </span>
 
                     <br>
@@ -65,8 +61,6 @@
             </div>
         </div>
     </div>
-
-
 
     
     <script src="js/app.js"></script>
