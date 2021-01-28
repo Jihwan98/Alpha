@@ -97,7 +97,7 @@ btnSignUp.addEventListener('if (window.event.keyCode == 13)', e => {
 //인증 이벤트 처리
 btnGoogle.onclick = () => auth.signInWithPopup(provider);
 
-signOutBtn.onclick = () => auth.signOut();
+signOutBtn.onclick = () => {auth.signOut(); window.location.reload(true);}
 
 auth.onAuthStateChanged(user => {
     if (user) {
