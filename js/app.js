@@ -131,6 +131,9 @@ auth.onAuthStateChanged(user => {
         
         saveButton.addEventListener("click", function() {
             const textToSave = inputTextField.value;
+            if (!textToSave){
+                alert("명령어를 입력하세요");
+            } else {
             
             alert("Your command is :" + textToSave);
             console.log("Your command is :" + textToSave);
@@ -141,6 +144,7 @@ auth.onAuthStateChanged(user => {
             }).catch(function(error){
                 console.log("Got an error: " + error);
             });
+            }
         });
 
 
@@ -163,5 +167,16 @@ auth.onAuthStateChanged(user => {
 });
 
 
+// Add Enter Key login
+const inputTextField = document.querySelector("#command_text");
+const saveButton = document.querySelector("#saveButton");
 
-
+inputTextField.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        // event.preventDefault();
+        // Trigger the button element with a click
+        saveButton.click();
+    }
+});
