@@ -115,33 +115,7 @@ auth.onAuthStateChanged(user => {
         userDetails.innerHTML = email + '<span> 안녕하세요.<span>'
         
         
-        if (self.name != 'reload') {
-            self.name = 'reload';
-            self.location.reload(true);
-        }
-        else self.name = ''; 
-
-        var db = firebase.firestore();
-
-        const docRef = db.collection("setting").doc(email);
-        
-        
-        const inputTextField = document.querySelector("#command_text");
-        const saveButton = document.querySelector("#saveButton");
-        
-        saveButton.addEventListener("click", function() {
-            const textToSave = inputTextField.value;
-            
-            alert("Your command is :" + textToSave);
-            console.log("Your command is :" + textToSave);
-            docRef.set({
-                Command_text : textToSave,
-            }).then(function(){
-                console.log("Status saved!");
-            }).catch(function(error){
-                console.log("Got an error: " + error);
-            });
-        });
+        self.close();
 
 
 
@@ -154,11 +128,6 @@ auth.onAuthStateChanged(user => {
         container1.hidden = false;
         userDetails.innerHTML = '';
 
-        const saveButton = document.querySelector("#saveButton");
-            
-        saveButton.addEventListener("click", function() {
-            alert("Login please")
-        });
 }
 });
 
