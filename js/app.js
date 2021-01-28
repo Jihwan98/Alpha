@@ -25,6 +25,7 @@ const whenSignedOut = document.getElementById('whenSignedOut');
 
 const btnGoogle = document.getElementById('btnGoogle');
 const signOutBtn = document.getElementById('signOutBtn');
+const signOutBtn_li = document.getElementById('signOutBtn_li');
 
 const userDetails = document.getElementById('userDetails');
 
@@ -98,6 +99,7 @@ btnSignUp.addEventListener('if (window.event.keyCode == 13)', e => {
 btnGoogle.onclick = () => auth.signInWithPopup(provider);
 
 signOutBtn.onclick = () => {auth.signOut(); window.location.reload(true);}
+signOutBtn_li.onclick = () => {auth.signOut(); window.location.reload(true);}
 
 auth.onAuthStateChanged(user => {
     if (user) {
@@ -113,6 +115,11 @@ auth.onAuthStateChanged(user => {
         whenSignedOut.hidden = true;
         container1.hidden = true;
         userDetails.innerHTML = email + '<span> 안녕하세요.<span>'
+
+        $("#login_popup").hide();
+        $("#logout_li").show();
+
+
         
         
         if (self.name != 'reload') {
@@ -157,6 +164,10 @@ auth.onAuthStateChanged(user => {
         whenSignedOut.hidden = false;
         container1.hidden = false;
         userDetails.innerHTML = '';
+
+        $("#login_popup").show();
+        $("#logout_li").hide();
+  
 
         const saveButton = document.querySelector("#saveButton");
             
