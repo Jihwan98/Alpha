@@ -113,7 +113,15 @@ auth.onAuthStateChanged(user => {
         whenSignedOut.hidden = true;
         container1.hidden = true;
         userDetails.innerHTML = email + '<span> 안녕하세요.<span>'
-
+        
+        
+        if (self.name != 'reload') {
+            self.name = 'reload';
+            self.location.reload(true);
+        }
+        else self.name = '';
+        
+        
 
         var db = firebase.firestore();
 
