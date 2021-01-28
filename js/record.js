@@ -80,7 +80,7 @@ record_section.onclick = () => {
 
                     audio.controls = true
                     const blob = new Blob(chunks, {
-                        'type': 'audio/ogg codecs=opus'
+                        'type': 'audio/wav codecs=opus'
                     })
                     chunks = []
                     const audioURL = URL.createObjectURL(blob)
