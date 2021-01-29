@@ -133,27 +133,85 @@ auth.onAuthStateChanged(user => {
         const docRef = db.collection("setting").doc(email);
         
         
-        const inputTextField = document.querySelector("#command_text");
-        const saveButton = document.querySelector("#saveButton");
+        // const inputTextField = document.querySelector("#command_text");
+        // const saveButton = document.querySelector("#saveButton");
         
-        saveButton.addEventListener("click", function() {
-            const textToSave = inputTextField.value;
-            if (!textToSave){
-                alert("명령어를 입력하세요");
-            } else {
+        //Command_text save
+        // saveButton.addEventListener("click", function() {
+        //     const textToSave = inputTextField.value;
+        //     if (!textToSave){
+        //         alert("명령어를 입력하세요");
+        //     } else {
             
-            alert("Your command is :" + textToSave);
-            console.log("Your command is :" + textToSave);
-            docRef.set({
-                Command_text : textToSave,
-            }).then(function(){
-                console.log("Status saved!");
-            }).catch(function(error){
-                console.log("Got an error: " + error);
-            });
-            }
-        });
+        //     alert("Your command is :" + textToSave);
+        //     console.log("Your command is :" + textToSave);
+        //     docRef.set({
+        //         Command_text : textToSave,
+        //     }).then(function(){
+        //         console.log("Status saved!");
+        //     }).catch(function(error){
+        //         console.log("Got an error: " + error);
+        //     });
+        //     }
+        // });
 
+
+        //Command_voice save
+                
+        var Command_Text, voiceUrl;
+        var files = [];
+        var reader ;
+
+
+
+        document.getElementById("select").onclick = function(e){
+
+
+            var input = document.createElement('input');
+            input.type = 'file';    
+
+            input.onchange = e => {
+                files = e.target.files;
+                reader = new FileReader();
+                reader.readAsDataURL(files[0]);
+            }
+            input.click();
+
+        }
+
+
+        document.getElementById('upload').onclick = function(){
+            Command_Text = document.getElementById('namebox').value;
+            var uploadTask = firebase.storage().ref('Voices/'+email+'/'+Command_Text+".wav").put(files[0]);
+
+            uploadTask.on('state_changed', function(snapshot) {
+                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                // document.getElementById('UpProgress').innerHTML = 'Upload' + progress + '%';
+            },
+
+            function(error) {
+                alert(error);
+                console.log('error :' + error);
+            },
+
+            function() {
+                uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+                    voiceUrl = url;
+                
+                console.log(voiceUrl);
+                const docRef = db.collection("setting").doc(email);
+                docRef.set({
+                    Command_Text : Command_Text,
+                    Command_Voice_Link : voiceUrl,
+                    Udate_Time : Date()
+                });
+            });
+            alert('설정이 완료되었습니다');
+            }
+            
+            );
+
+        }
 
 
 
@@ -178,16 +236,9 @@ auth.onAuthStateChanged(user => {
 });
 
 
-// Add Enter Key login
-const inputTextField = document.querySelector("#command_text");
-const saveButton = document.querySelector("#saveButton");
 
-inputTextField.addEventListener("keyup", function(event) {
-    // Number 13 is the "Enter" key on the keyboard
-    if (event.keyCode === 13) {
-        // Cancel the default action, if needed
-        // event.preventDefault();
-        // Trigger the button element with a click
-        saveButton.click();
-    }
-});
+
+
+
+
+

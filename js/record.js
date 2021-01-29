@@ -58,7 +58,7 @@ record_section.onclick = () => {
                 mediaRecorder.onstop = e => {
                     console.log("data available after MediaRecorder.stop() called.")
 
-                    const clipName = prompt("오디오 파일 제목을 입력하세요.", new Date())
+                    const clipName = new Date()
 
                     const clipContainer = document.createElement('article')
                     const clipLabel = document.createElement('span')
@@ -70,13 +70,13 @@ record_section.onclick = () => {
                     deleteButton.classList.add('delete_btn')
                     audio.setAttribute('controls', '')
                     deleteButton.innerHTML = "삭제"
-                    clipLabel.innerHTML = clipName
+                    // clipLabel.innerHTML = clipName
 
                     clipContainer.appendChild(audio)
-                    clipContainer.appendChild(br)
                     clipContainer.appendChild(clipLabel)
                     clipContainer.appendChild(deleteButton)
                     soundClips.appendChild(clipContainer)
+                    // clipContainer.append(br)
 
                     audio.controls = true
                     const blob = new Blob(chunks, {
