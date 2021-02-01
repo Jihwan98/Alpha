@@ -227,9 +227,9 @@ auth.onAuthStateChanged(user => {
         $("#logout_li").hide();
   
 
-        const upload = document.querySelector("#upload");
+        const setting_section = document.querySelector("#setting_section");
             
-        upload.addEventListener("click", function() {
+        setting_section.addEventListener("click", function() {
             alert("Login please")
         });
 }
