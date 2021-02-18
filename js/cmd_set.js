@@ -5,24 +5,25 @@ function Google(){
     $("#cmd_recommend").show();
     $("#cmd").text("Hi Google")
 
-    $("#end").hide();
+    // $("#end").hide();
     $(".make").hide();
 }
 function Amazon(){
     $("#cmd_recommend").show();
     $("#cmd").text("Hi Alexa")
 
-    $("#end").hide();
+    // $("#end").hide();
     $(".make").hide();
 }
 
-function End(){
-    $("#end").show();
-    $(".make").hide();
-    $("#cmd_recommend").hide();
-}
+// function End(){
+//     $("#end").show();
+//     $(".make").hide();
+//     $("#cmd_recommend").hide();
+// }
+
 function Make(){
-    $("#end").hide();
+    // $("#end").hide();
     $(".make").show();
     $("#cmd_recommend").hide();
 

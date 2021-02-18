@@ -331,21 +331,23 @@
                 
                 <div id="js">
                     <script>
-                        document.write('<div id="cmd_recommend"><h3>해당 기기에 추천하는 명령어는"' + "<span id='cmd'>a</span>" +'" 입니다.<br> 이 명령어로 등록하시겠습니까?<br><button onclick=End(); class = "y" id="cmd_yes">Yes</button><button onclick=Make() class = "y";>No</button></div>');
+                        document.write('<div id="cmd_recommend"><h3>해당 기기에 추천하는 명령어는"' + "<span id='cmd'>a</span>" +'" 입니다.<br> 이 명령어로 등록하시겠습니까?<br><button class = "y" id="cmd_yes">Yes</button><button onclick=Make() class = "y";>No</button></div>');
                     </script>
                 </div>
             
-                <h3 id="end">설정이 완료되었습니다</h3>
+                <!-- <h3 id="end">설정이 완료되었습니다</h3> -->
             
                 <div class="make">
-                    <!-- <div>    
+                  <!-- text command -->
+                    <div>    
                         <h3>원하는 명령어를 적어주세요</h3>
                         <div class="button-center">
                             <input type="textfield" id="command_text" class = "wri" placeholder="Enter command">
                             <button class = "ok" id="saveButton">확인</button>
                         </div>
-                    </div> -->
-                    <div>
+                    </div>
+                    <!-- text and voice command -->
+                    <!-- <div>
                         <h3>원하는 명령어를 녹음해주세요</h3>
                         <div id="record_section" class="button-center">
                             <div class="btn_section">
@@ -356,12 +358,12 @@
                             
                             
                         </div>
-                    </div>
-                        <input id = "namebox" type = "text" class = "wri" placeholder="Enter Command"><br><br>
+                    </div> -->
+                    <!-- <input id = "namebox" type = "text" class = "wri" placeholder="Enter Command"><br><br>
 
-                        <button class = "ok" id = "select">파일 선택</button>
-                        <button class = "ok" id = "upload">설정 완료</button>
-                        <!-- <button class = "ok" onclick=End()>설정완료</button> -->
+                    <button class = "ok" id = "select">파일 선택</button> -->
+                    <!-- <button class = "ok" id = "upload">설정 완료</button> -->
+                    <!-- <button class = "ok" onclick=End()>설정완료</button> -->
                   </div>
 
 
@@ -495,7 +497,7 @@
   <script src="js/main.js"></script>
   <script src="js/cmd_set.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/record.js"></script>
+  <!-- <script src="js/record.js"></script> -->
 
 </body>
 </html>

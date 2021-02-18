@@ -71,6 +71,7 @@ if (event.keyCode === 13) {
 
 
 
+
 // Add signup event
 btnSignUp.addEventListener('if (window.event.keyCode == 13)', e => {
     // Get email and pass
@@ -130,103 +131,111 @@ auth.onAuthStateChanged(user => {
 
         var db = firebase.firestore();
 
-        // const docRef = db.collection("setting").doc(email);
+        const docRef = db.collection("setting").doc(email);
         
         
-        // const inputTextField = document.querySelector("#command_text");
-        // const saveButton = document.querySelector("#saveButton");
+        const inputTextField = document.querySelector("#command_text");
+        const saveButton = document.querySelector("#saveButton");
         
         //Command_text save
-        // saveButton.addEventListener("click", function() {
-        //     const textToSave = inputTextField.value;
-        //     if (!textToSave){
-        //         alert("명령어를 입력하세요");
-        //     } else {
+        saveButton.addEventListener("click", function() {
+            const textToSave = inputTextField.value;
+            if (!textToSave){
+                alert("명령어를 입력하세요");
+            } else {
             
-        //     alert("Your command is :" + textToSave);
-        //     console.log("Your command is :" + textToSave);
-        //     docRef.set({
-        //         Command_text : textToSave,
-        //     }).then(function(){
-        //         console.log("Status saved!");
-        //     }).catch(function(error){
-        //         console.log("Got an error: " + error);
-        //     });
-        //     }
-        // });
+            alert('"' + textToSave + '"(으)로 명령어 설정이 완료되었습니다.');
+            console.log("Your command :" + textToSave);
+            docRef.set({
+                Command_text : textToSave,
+                Udate_Time : Date()
+            }).then(function(){
+                console.log("Status saved!");
+            }).catch(function(error){
+                console.log("Got an error: " + error);
+            });
+            }
+        });
+
+        // Add Enter Key Command Submit
+        inputTextField.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                saveButton.click();
+            }
+        });
 
 
         //Command_voice save
                 
-        var Command_Text, voiceUrl;
-        var files = [];
-        var reader ;
+    //     var Command_Text, voiceUrl;
+    //     var files = [];
+    //     var reader ;
 
-        const docRef = db.collection("setting").doc(email);
-
-
-        document.getElementById("select").onclick = function(e){
-            var input = document.createElement('input');
-            input.type = 'file';    
-
-            input.onchange = e => {
-                files = e.target.files;
-                reader = new FileReader();
-                reader.readAsDataURL(files[0]);
-            }
-            input.click();
-        }
+    //     const docRef = db.collection("setting").doc(email);
 
 
-        document.getElementById('upload').onclick = function(){
-            Command_Text = document.getElementById('namebox').value;
-            if (Command_Text == ''){
-                alert('명령어를 입력해주세요')
-            }
+    //     document.getElementById("select").onclick = function(e){
+    //         var input = document.createElement('input');
+    //         input.type = 'file';    
 
-            else{
-                var uploadTask = firebase.storage().ref('Voices/'+email+'/'+Command_Text+".wav").put(files[0]);
+    //         input.onchange = e => {
+    //             files = e.target.files;
+    //             reader = new FileReader();
+    //             reader.readAsDataURL(files[0]);
+    //         }
+    //         input.click();
+    //     }
 
-                uploadTask.on('state_changed', function(snapshot) {
-                    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log(progress+'%');
-                    // document.getElementById('UpProgress').innerHTML = 'Upload' + progress + '%';
-                },
 
-                function(error) {
-                    alert(error);
-                    console.log('error :' + error);
-                },
+    //     document.getElementById('upload').onclick = function(){
+    //         Command_Text = document.getElementById('namebox').value;
+    //         if (Command_Text == ''){
+    //             alert('명령어를 입력해주세요')
+    //         }
 
-                function() {
-                    uploadTask.snapshot.ref.getDownloadURL().then(function(url){
-                        voiceUrl = url;
+    //         else{
+    //             var uploadTask = firebase.storage().ref('Voices/'+email+'/'+Command_Text+".wav").put(files[0]);
+
+    //             uploadTask.on('state_changed', function(snapshot) {
+    //                 var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //                 console.log(progress+'%');
+    //                 // document.getElementById('UpProgress').innerHTML = 'Upload' + progress + '%';
+    //             },
+
+    //             function(error) {
+    //                 alert(error);
+    //                 console.log('error :' + error);
+    //             },
+
+    //             function() {
+    //                 uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+    //                     voiceUrl = url;
                     
-                    console.log(Command_Text);
+    //                 console.log(Command_Text);
                     
-                    docRef.set({
-                        Command_Text : Command_Text,
-                        Command_Voice_Link : voiceUrl,
-                        Udate_Time : Date()
-                    });
-                    });
-                    alert('설정이 완료되었습니다');
-                }
+    //                 docRef.set({
+    //                     Command_Text : Command_Text,
+    //                     Command_Voice_Link : voiceUrl,
+    //                     Udate_Time : Date()
+    //                 });
+    //                 });
+    //                 alert('설정이 완료되었습니다');
+    //             }
                 
-                );
-            }
-        }
+    //             );
+    //         }
+    //     }
 
 
         document.getElementById('cmd_yes').onclick = function(){
             Command_Text_btn = $('#cmd').text();
-            console.log(Command_Text_btn);
+            console.log("Your Command : " + Command_Text_btn);
             
             docRef.set({
                 Command_Text : Command_Text_btn,
                 Update_Time : Date()
             });
-            alert('설정이 완료되었습니다');
+            alert('"' + Command_Text_btn + '"로 명령어 설정이 완료되었습니다');
         }
 
 
@@ -250,11 +259,5 @@ auth.onAuthStateChanged(user => {
         });
     }
 });
-
-
-
-
-
-
 
 
