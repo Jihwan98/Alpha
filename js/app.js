@@ -252,8 +252,8 @@ auth.onAuthStateChanged(user => {
         $("#logout_li").hide();
   
 
-        const setting_section = document.querySelector("#setting_section");
-            
+        const setting_section = document.querySelector("#setting_section");          
+         
         setting_section.addEventListener("click", function() {
             alert("Login please")
         });
