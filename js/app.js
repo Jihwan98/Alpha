@@ -73,7 +73,7 @@ if (event.keyCode === 13) {
 
 
 // Add signup event
-btnSignUp.addEventListener('if (window.event.keyCode == 13)', e => {
+btnSignUp.addEventListener('click', e => {
     // Get email and pass
     // TODO: CHECK 4 REAL EMAILZ
     const email = userLoginEmail.value;
@@ -82,9 +82,10 @@ btnSignUp.addEventListener('if (window.event.keyCode == 13)', e => {
 
     // Sign in
     const promise = auth.createUserWithEmailAndPassword(email,pass);
-    promise.catch(e => console.log(e.message));
-    promise
-        .catch(e => console.log(e.message));
+    promise.catch(e => {
+        console.log(e.message)
+        alert(e.message)
+    });
 });
 
 
